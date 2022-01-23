@@ -211,7 +211,7 @@ label #btn_filter{
 	/*max-width: 900px;
 }
 */
-#check_tabs:checked ~ .pippo .mytabs {
+#check_tabs:checked ~ .mapContainer .mytabs {
 	display: flex;
 }
 
@@ -295,7 +295,7 @@ input#tabFilter:checked + label {
 	user-select: none;
 }
 
-.pippo{
+.mapContainer{
 	position: relative;
 z-index: 0;
 width: 100%;
@@ -513,7 +513,7 @@ button{
 }
 
 /* Toggle this class when clicking on the popup container (hide and show the popup) */
-.pippo .show {
+.mapContainer .show {
   visibility: visible;
   -webkit-animation: fadeIn 1s;
   animation: fadeIn 1s
