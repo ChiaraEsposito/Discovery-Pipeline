@@ -25,7 +25,7 @@ Miniconda: https://docs.conda.io/en/latest/miniconda.html
 ## Set Up before using the code
 I really suggest to use the already existing environment.
 <br /> 
-After downloading the file "environment.yml", use the terminal or an Anaconda Prompt for the following steps:
+After downloading the file "environment.yml", open the terminal or an Anaconda Prompt, change directory to go to the location where the file is located and do the following steps:
 
 1. Create the environment from the environment.yml file:
 
@@ -50,7 +50,7 @@ conda info --envs.
 ```
 ## To use the code
 1. Open two different terminals or Anaconda Prompts.
-2. Change directory to go to the "api" folder downloaded.
+2. Change directory to go in the "api" folder downloaded.
 3. Run: ```python backend.py``` in one terminal or prompt;
 4. Run: ```python frontend.py``` in the other one.
 5. Go to your browser on http://127.0.0.1/8080
