@@ -7,6 +7,7 @@ Conda or Minicoda installed.
 ### To install conda or miniconda
 Follow this link: 
 Conda: https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html
+<br />
 Miniconda: https://docs.conda.io/en/latest/miniconda.html
 
 ## Set Up
