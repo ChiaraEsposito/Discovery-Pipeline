@@ -1,8 +1,17 @@
 # Discovery-Pipeline
-1) Discover: The Big Data pipeline definition process starts by analysing a provider’s Dark Data that consists of various sources (static data and event streams). The goal is to discover the structure and properties of the Big Data pipelines and provide input to their definition.
+We take care of the Discover phase of an envisioned ecosystem for managing the Big Data pipeline lifecycle on Computing Continuum. <br />
+The Discover phase: The Big Data pipeline definition process starts by analysing a provider’s Dark Data that consists of various sources (static data and event streams). The goal is to discover the structure and properties of the Big Data pipelines and provide input to their definition.
+
+This code provides two different servers communicating with eachother implemented using **Flask API** and Python footnote[^1], ( **backend.py** and **frontend.py** ) ; and an interface implemented in **html, css and javascript**. 
+<br />
+For the backend part, we have referred to: https://pm4py.fit.fraunhofer.de/
+[^1]: https://programminghistorian.org/en/lessons/creating-apis-with-python-and-flask#setting-up .
 
 ## Requirements
 Conda or Minicoda installed. 
+This code has been implemented using:
+**Python 3.8.12**
+**conda 4.10.3**
 
 ### To install conda or miniconda
 Follow this link: 
