@@ -13,8 +13,7 @@ This code consists of:
 [^4]: https://unpkg.com/viz.js@1.8.0/viz.js .
 
 ## Requirements
-**Python 3.8.12** and 
-**conda 4.10.3**
+The code has been tested using **Python 3.8.12** and **conda 4.10.3**. Other versions are not guaranteed to work correctly.
 
 ### To install conda or miniconda
 Follow this links: 
