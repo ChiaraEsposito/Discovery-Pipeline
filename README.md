@@ -1,10 +1,10 @@
-### Discovery-Pipeline
+# Discovery-Pipeline
 1) Discover: The Big Data pipeline definition process starts by analysing a provider’s Dark Data that consists of various sources (static data and event streams). The goal is to discover the structure and properties of the Big Data pipelines and provide input to their definition.
 
 ## Requirements
 Conda or Minicoda installed. 
 
-# To install conda or miniconda
+### To install conda or miniconda
 Follow this link: 
 Conda: https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html
 Miniconda: https://docs.conda.io/en/latest/miniconda.html
