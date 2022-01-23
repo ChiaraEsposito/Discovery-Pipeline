@@ -2,25 +2,29 @@
 We take care of the Discover phase of an envisioned ecosystem for managing the Big Data pipeline lifecycle on Computing Continuum. <br />
 The Discover phase: The Big Data pipeline definition process starts by analysing a provider’s Dark Data that consists of various sources (static data and event streams). The goal is to discover the structure and properties of the Big Data pipelines and provide input to their definition.
 
-This code provides two different servers communicating with eachother implemented using **Flask API** and Python footnote[^1], ( **backend.py** and **frontend.py** ) ; and an interface implemented in **html, css and javascript**. 
-<br />
-For the backend part, we have referred to: https://pm4py.fit.fraunhofer.de/
-[^1]: https://programminghistorian.org/en/lessons/creating-apis-with-python-and-flask#setting-up .
+This code consists of:
+- two Web APIs implemented using Python and **Flask**[^1]:
+  - **backend.py**: using the PM4PY library[^2], implements the DFG[^3] algorithm for Process Discovery, given an event log. Process Discovery algorithms want to find a suitable process model that describes the order of events/activities that are executed during a process execution. 
+  - **frontend.py**: exposes a web application implemented using **html, css and javascript** and communicates with **backend.py** to receive the results of Process Discovery on the base of user inputs. 
+
+[^1]: For further information how to create Web APIs with Python and Flask, please refer to the following link: https://programminghistorian.org/en/lessons/creating-apis-with-python-and-flask#setting-up .
+[^2]: https://pm4py.fit.fraunhofer.de/ .
+[^3]: Directly-Follows graphs are graphs where the nodes represent the events/activities in the log and directed edges are present between nodes if there is at least a trace in the log where the source event/activity is followed by the target event/activity. On top of these directed edges, it is easy to represent metrics like frequency (counting the number of times the source event/activity is followed by the target event/activity) and performance (some aggregation, for example, the mean, of time inter-lapsed between the two events/activities).
 
 ## Requirements
-Conda or Minicoda installed. 
-This code has been implemented using:
 **Python 3.8.12**
 **conda 4.10.3**
 
 ### To install conda or miniconda
-Follow this link: 
+Follow this links: 
 <br />
 Conda: https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html
 <br />
 Miniconda: https://docs.conda.io/en/latest/miniconda.html
 
-## Set Up
+## Set Up before using the code
+I really suggest to use the already existing environment.
+<br /> 
 After downloading the file, use the terminal or an Anaconda Prompt for the following steps:
 
 1. Create the environment from the environment.yml file:
