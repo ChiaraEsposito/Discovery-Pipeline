@@ -25,7 +25,7 @@ Miniconda: https://docs.conda.io/en/latest/miniconda.html
 ## Set Up before using the code
 I really suggest to use the already existing environment.
 <br /> 
-After downloading the file, use the terminal or an Anaconda Prompt for the following steps:
+After downloading the file "environment.yml", use the terminal or an Anaconda Prompt for the following steps:
 
 1. Create the environment from the environment.yml file:
 
