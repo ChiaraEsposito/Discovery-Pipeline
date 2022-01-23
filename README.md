@@ -12,7 +12,7 @@ This code consists of:
 [^3]: Directly-Follows graphs are graphs where the nodes represent the events/activities in the log and directed edges are present between nodes if there is at least a trace in the log where the source event/activity is followed by the target event/activity. On top of these directed edges, it is easy to represent metrics like frequency (counting the number of times the source event/activity is followed by the target event/activity) and performance (some aggregation, for example, the mean, of time inter-lapsed between the two events/activities).
 
 ## Requirements
-**Python 3.8.12**
+**Python 3.8.12** and 
 **conda 4.10.3**
 
 ### To install conda or miniconda
