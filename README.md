@@ -50,10 +50,11 @@ conda info --envs.
 ```
 ## To use the code
 1. Open two different terminals or Anaconda Prompts.
-2. Change directory to go in the "api" folder downloaded.
-3. Run: ```python backend.py``` in one terminal or prompt;
-4. Run: ```python frontend.py``` in the other one.
-5. Go to your browser on http://127.0.0.1/8080
+2. Activate "pm4py_env" in both of them.
+3. Change directory to go in the "api" folder downloaded.
+4. Run: ```python backend.py``` in one terminal or prompt;
+5. Run: ```python frontend.py``` in the other one.
+6. Go to your browser on http://127.0.0.1/8080
 
 ## NOTE
 If there is an error saying <br />
