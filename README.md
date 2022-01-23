@@ -35,3 +35,9 @@ or
 ```
 conda info --envs.
 ```
+## To use the code
+1. Open two different terminals or Anaconda Prompts
+2. Go to the "api" folder
+3. Run: ```python backend.py``` in one terminal or prompt
+4. Run: ```python frontend.py``` in the other one.
+5. Go to your browser on http://127.0.0.1/8080
