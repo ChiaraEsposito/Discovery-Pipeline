@@ -4,12 +4,13 @@ The Discover phase: The Big Data pipeline definition process starts by analysing
 
 This code consists of:
 - two Web APIs implemented using Python and **Flask**[^1]:
-  - **backend.py**: using the PM4PY library[^2], implements the DFG[^3] algorithm for Process Discovery, given an event log. Process Discovery algorithms want to find a suitable process model that describes the order of events/activities that are executed during a process execution. 
-  - **frontend.py**: exposes a web application implemented using **html, css and javascript** and communicates with **backend.py** to receive the results of Process Discovery on the base of user inputs. 
+  - **backend.py**: uses the PM4PY library[^2] and Process Discovery algorithms to find a suitable process model that describes the order of events/activities of a given event log. In particular, for Process Discovery it has been used the DFG[^3] algorithm, that, together with some input parameters, returns a Digraph in DOT language format.  
+  - **frontend.py**: exposes a web application implemented using **html, css and javascript** and communicates with **backend.py** to receive the results of Process Discovery on the base of user inputs. In particular, it uses the Viz.js[^4] library to represents the DOT language format. 
 
 [^1]: For further information how to create Web APIs with Python and Flask, please refer to the following link: https://programminghistorian.org/en/lessons/creating-apis-with-python-and-flask#setting-up .
 [^2]: https://pm4py.fit.fraunhofer.de/ .
 [^3]: Directly-Follows graphs are graphs where the nodes represent the events/activities in the log and directed edges are present between nodes if there is at least a trace in the log where the source event/activity is followed by the target event/activity. On top of these directed edges, it is easy to represent metrics like frequency (counting the number of times the source event/activity is followed by the target event/activity) and performance (some aggregation, for example, the mean, of time inter-lapsed between the two events/activities).
+[^4]: https://unpkg.com/viz.js@1.8.0/viz.js .
 
 ## Requirements
 **Python 3.8.12** and 
