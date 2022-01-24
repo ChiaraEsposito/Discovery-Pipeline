@@ -45,7 +45,7 @@ def home():
         myActF_init = "100", \
         myPathP_init = "100", \
         myActP_init = "100", \
-        perf_checked = "false") 
+        perf_checked = "false" ) 
         
     #return render_template("viz-js.html")
     
@@ -80,6 +80,7 @@ def myPost():
    
     #f = requests.post('http://127.0.0.1:7777/dfgFreqReduced', path)
     #f = requests.get('http://127.0.0.1:7777/dfgFreqReduced?myPahtF='+path)
+    print(request.form.get('updated'))
     if request.form.get('updated') != None:
         f = request.files['file']
         if f.filename != '': 
