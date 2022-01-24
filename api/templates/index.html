@@ -50,6 +50,15 @@ function showImg(img) {
 <script>
 window.onload = function() {
 
+	var perf_checked = document.getElementById("perf_checked");
+	console.log((perf_checked).value);
+	if ((perf_checked).value == "true"){
+		console.log((document.getElementById("tabFreq")).checked);
+		(document.getElementById("tabFreq")).checked = false;
+		(document.getElementById("tabPerf")).checked = true;
+	}
+
+
 	var menu = document.getElementById("menu");
 	menu.style.display = "none";
 	//Load variants
@@ -172,12 +181,16 @@ window.onload = function() {
 										
 										<form action="" method='POST'>
 											<input type="hidden" id='tabTypeFreq' name='tabType' value="frequency">
-											<input type="range" min="1" max="100" value="0" class="sliderPA" id="myPathF" name="myPathF">
+											<input type="range" min="0" max="100" value="{{myPathF_init}}" class="sliderPA" id="myPathF" name="myPathF">
 											<p>Path: <span id="pathF"></span>%</p>
 											
-											
-											<input type="range" min="1" max="100" value="100" class="sliderPA" id="myActF" name="myActF">
+											<input type="range" min="0" max="100" value="{{myActF_init}}" class="sliderPA" id="myActF" name="myActF">
 											<p>Activities: <span id="actF"></span>%</p>
+											
+											
+											<input type="hidden" min="0" max="100" value="{{myPathP_init}}" name="myPathP">
+											<input type="hidden" min="0" max="100" value="{{myActP_init}}"  name="myActP">
+											
 											
 											<br />
 											
@@ -205,12 +218,16 @@ window.onload = function() {
 										
 										<form action="" method='POST'>
 											<input type="hidden" id='tabTypePerf' name='tabType' value="performance">
-											<input type="range" min="1" max="100" value="0" class="sliderPA" id="myPathP" name='myPathP'>
+											<input type="range" min="0" max="100" value="{{myPathP_init}}" class="sliderPA" id="myPathP" name='myPathP'>
 											<p>Path: <span id="pathP"></span>%</p>
 											
 											
-											<input type="range" min="1" max="100" value="100" class="sliderPA" id="myActP" name='myActP'>
+											<input type="range" min="0" max="100" value="{{myActP_init}}" class="sliderPA" id="myActP" name='myActP'>
 											<p>Activities: <span id="actP"></span>%</p>
+											
+											<input type="hidden" min="0" max="100" value="{{myPathF_init}}" name="myPathF">
+											<input type="hidden" min="0" max="100" value="{{myActF_init}}"  name="myActF">
+											<input type="hidden" value="{{perf_checked}}"  name="perf_checked" id="perf_checked">
 											
 											<br />
 											
@@ -369,9 +386,15 @@ window.onload = function() {
 				</div>
 				
 				<div class="bottomright">
-					<button type="button">Import log</button>
-					<button type="button">Export to DSL</button>
-					<button type="button">Export to DEF-PIPE</button>
+					<form action="" method='POST' enctype = "multipart/form-data">
+						<!-- <button type="button" for="myFile">Import log</button> -->
+						<button type="button" onclick="document.getElementById('file').click()">Import log</button>
+						<input type='file' id="file" name="file" style="display:none">
+						<button type="button">Export to DSL</button>
+						<button type="button">Export to DEF-PIPE</button>
+						<input type="submit" value="Submit">
+						<input type="hidden" value="{{updated}}" name="{{updated}}">
+					</form>
 				</div>
 		</div>
 		
@@ -392,10 +415,12 @@ var mapText = document.getElementById("map-text");
 var elanalysisText = document.getElementById("elanalysis-text");
 var cCheckingText = document.getElementById("cChecking-text");
 
+
 function mainMenu(){
 	if (menuBtn.checked == false) {
 		menu.style.display = "none";
 		content.style.maxWidth = "100%";
+		console.log(document.getElementById("file").files[0]);
 	}
 	else {
 		menu.style.display = "flex";
@@ -451,16 +476,16 @@ slider.oninput = function() {
 //Zooming and paning with mouse
 
 const svgContainer = document.getElementById("map-content");
-console.log(svgContainer);
+//console.log(svgContainer);
 
 var viewBox = {x:0,y:0,w:"975.94",h:"518.8"};
 var attr = String(viewBox.x)+" "+String(viewBox.y)+" "+String(viewBox.w)+" "+String(viewBox.h);
 zvgZoom.setAttribute('viewBox', attr);
-console.log(zvgZoom.clientWidth);
-console.log(String(zvgZoom.style.width));
+//console.log(zvgZoom.clientWidth);
+//console.log(String(zvgZoom.style.width));
 //const svgSize = {w:zvgZoom.style.width,h:zvgZoom.style.height};
 const svgSize = {w:"975.94",h:"518.8"};
-console.log("Initial svgSize: "+String(svgSize.w)+" "+String(svgSize.h));
+//console.log("Initial svgSize: "+String(svgSize.w)+" "+String(svgSize.h));
 var isPanning = false;
 var startPoint = {x:0,y:0};
 var endPoint = {x:0,y:0};;
@@ -563,7 +588,6 @@ function getMap() {
 			else {
 				sample = document.getElementById("digraphP").innerHTML;
 			}
-		
 		//var sample = 'digraph g{ a -> b}';
 		sample = sample.replace(/&#34;/g, '"');
 		sample = sample.replace(/&gt;/g, ">");
