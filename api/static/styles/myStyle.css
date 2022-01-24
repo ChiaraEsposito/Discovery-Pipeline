@@ -470,6 +470,17 @@ button{
   margin-bottom: 5px;
 }
 
+.bottomright input[type=submit]{
+  background-color: #cfa8d5;
+  color: white;
+  padding: 6px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 12px;
+  margin-bottom: 5px;
+}
+
 .tab input[type=submit]{
 	background-color: #cfa8d5;
   color: white;
