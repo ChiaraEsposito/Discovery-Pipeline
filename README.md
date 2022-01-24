@@ -15,15 +15,17 @@ This code consists of:
 ## Requirements
 The code has been tested using **Python 3.8.12** and **conda 4.10.3**. Other versions are not guaranteed to work correctly.
 
-### To install conda or miniconda
+### To install conda
 Follow this links: 
 <br />
-Conda: https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html
+https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html
 <br />
-Miniconda: https://docs.conda.io/en/latest/miniconda.html
+Or go directly to Miniconda: https://docs.conda.io/en/latest/miniconda.html
+
+It should work also on Anaconda: https://docs.anaconda.com/anaconda/install/index.html
 
 ## Set Up before using the code
-I really suggest to use the already existing environment.
+It is really suggested to use the already existing environment.
 <br /> 
 After downloading the file "environment.yml", open the terminal or an Anaconda Prompt, change directory to go to the location where the file is located and do the following steps:
 
@@ -32,7 +34,7 @@ After downloading the file "environment.yml", open the terminal or an Anaconda P
 ```
 conda env create -f environment.yml
 ```
-The first line of the yml file sets the new environment's name.
+The first line of the yml file sets the new environment's name, in this case "pm4py_env"
 <br />
 2. Activate the new environment: 
 ```
@@ -59,7 +61,7 @@ conda info --envs.
 ## NOTE
 If there is an error saying <br />
 ```from graphviz.dot import Digraph ImportError: cannot import name 'Digraph' from 'graphviz.dot' ``` 
-<br /> try changing the line 21 of file "gview.dot" in path <br /> 
-``` C:\Users\<username>\<miniconda3|anaconda3>\envs\pm4py_env\Lib\site-packages\pm4py\visualization\common```
+<br /> try changing the line 21 of file "gview.dot" through path <br /> 
+``` C:\Users\<username>\<miniconda3|anaconda3>\envs\pm4py_env\Lib\site-packages\pm4py\visualization\common\gview.dot```
 <br />with this line  
 <br /> ```from graphviz import Digraph```
