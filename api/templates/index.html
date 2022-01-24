@@ -51,9 +51,7 @@ function showImg(img) {
 window.onload = function() {
 
 	var perf_checked = document.getElementById("perf_checked");
-	console.log((perf_checked).value);
 	if ((perf_checked).value == "true"){
-		console.log((document.getElementById("tabFreq")).checked);
 		(document.getElementById("tabFreq")).checked = false;
 		(document.getElementById("tabPerf")).checked = true;
 	}
@@ -388,12 +386,14 @@ window.onload = function() {
 				<div class="bottomright">
 					<form action="" method='POST' enctype = "multipart/form-data">
 						<!-- <button type="button" for="myFile">Import log</button> -->
-						<button type="button" onclick="document.getElementById('file').click()">Import log</button>
+						<button type="button" onclick="update()">Import log</button>
 						<input type='file' id="file" name="file" style="display:none">
 						<button type="button">Export to DSL</button>
 						<button type="button">Export to DEF-PIPE</button>
-						<input type="submit" value="Submit">
-						<input type="hidden" value="{{updated}}" name="{{updated}}">
+						<div style="text-align:center">
+							<input type="submit" value="Update">
+						<div>
+						<input type="hidden" value="{{updated}}" name="updated" id="updated">
 					</form>
 				</div>
 		</div>
@@ -405,6 +405,13 @@ window.onload = function() {
 </body>
 
 <script>
+
+function update(){
+	document.getElementById('updated').value = true;
+	document.getElementById('file').click();
+}
+
+
 var menuBtn = document.getElementById("check");
 var menu = document.getElementById("menu");
 var content = document.getElementById("content");
@@ -420,7 +427,7 @@ function mainMenu(){
 	if (menuBtn.checked == false) {
 		menu.style.display = "none";
 		content.style.maxWidth = "100%";
-		console.log(document.getElementById("file").files[0]);
+		//console.log(document.getElementById("file").files[0]);
 	}
 	else {
 		menu.style.display = "flex";
