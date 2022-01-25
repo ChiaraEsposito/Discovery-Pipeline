@@ -547,10 +547,9 @@ svgContainer.onmousewheel = function(e) {
 //   zoomValue.innerText = String(Math.round(scale*100)/100);
    var attr = String(viewBox.x)+" "+String(viewBox.y)+" "+String(viewBox.w)+" "+String(viewBox.h);
    zvgZoom.setAttribute('viewBox', attr);
-   if (slider.value > 155){
-	document.getElementById("bottomright").style.display = "none";
-	document.getElementById("importExport").checked = false;
-  }
+   
+   document.getElementById("bottomright").style.display = "none";
+   document.getElementById("importExport").checked = false;
 
 }
 
@@ -613,10 +612,8 @@ slider.oninput = function(e) {
    var attr = String(viewBox.x)+" "+String(viewBox.y)+" "+String(viewBox.w)+" "+String(viewBox.h);
    zvgZoom.setAttribute('viewBox', attr);
   
-  if (this.value > 155){
 	document.getElementById("bottomright").style.display = "none";
 	document.getElementById("importExport").checked = false;
-  }
 }
 </script>
 
