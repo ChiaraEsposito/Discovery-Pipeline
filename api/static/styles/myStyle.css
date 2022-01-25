@@ -205,7 +205,7 @@ label #btn_filter{
 
 #iebtn{
 	position: fixed;
-	right: 30px; 
+	right: 40px; 
 	bottom: 30px;
 	cursor: pointer;
 	background: white;
@@ -467,7 +467,7 @@ li {
 
 .bottomright {
   position: fixed;
-  right: 30px; 
+  right: 40px; 
   bottom: 30px;
   display: none;
   background-color:white;
