@@ -511,11 +511,6 @@ const zvgZoom = document.getElementById("graphContainer");
 
 output.innerHTML = slider.value;
 
-slider.oninput = function() {
-  output.innerHTML = this.value;
-  //console.log('zoom', this.value / 100);
-  zvgZoom.style.transform = 'scale('+this.value / 100+')';
-}
 
 //Zooming and paning with mouse
 
@@ -547,12 +542,15 @@ svgContainer.onmousewheel = function(e) {
    var dy = dh*my/svgSize.h;
    viewBox = {x:viewBox.x+dx,y:viewBox.y+dy,w:viewBox.w-dw,h:viewBox.h-dh};
    scale = svgSize.w/viewBox.w;
-   console.log("Scale: "+String(scale));
    slider.value = scale*100;
    output.innerHTML = slider.value;
 //   zoomValue.innerText = String(Math.round(scale*100)/100);
    var attr = String(viewBox.x)+" "+String(viewBox.y)+" "+String(viewBox.w)+" "+String(viewBox.h);
    zvgZoom.setAttribute('viewBox', attr);
+   if (slider.value > 155){
+	document.getElementById("bottomright").style.display = "none";
+	document.getElementById("importExport").checked = false;
+  }
 
 }
 
@@ -588,7 +586,38 @@ svgContainer.onmouseup = function(e){
 svgContainer.onmouseleave = function(e){
  isPanning = false;
 }
+ 
+var lastNum = 0;
+var v;
+slider.oninput = function(e) {
 
+  if(lastNum < this.value) {
+		v = -500;
+	} else {
+		v = 500;
+	}
+	lastNum = this.value;
+ 
+   var w = viewBox.w;
+   var h = viewBox.h;
+   var mx = 0;//mouse x  
+   var my = 0;
+   var dw = -w*Math.sign(v)*0.05;
+   var dh = -h*Math.sign(v)*0.05;
+   var dx = dw*mx/svgSize.w;
+   var dy = dh*my/svgSize.h;
+   viewBox = {x:viewBox.x+dx,y:viewBox.y+dy,w:viewBox.w-dw,h:viewBox.h-dh};
+   scale = svgSize.w/viewBox.w;
+   slider.value = scale*100;
+   output.innerHTML = slider.value;
+   var attr = String(viewBox.x)+" "+String(viewBox.y)+" "+String(viewBox.w)+" "+String(viewBox.h);
+   zvgZoom.setAttribute('viewBox', attr);
+  
+  if (this.value > 155){
+	document.getElementById("bottomright").style.display = "none";
+	document.getElementById("importExport").checked = false;
+  }
+}
 </script>
 
 <script>
