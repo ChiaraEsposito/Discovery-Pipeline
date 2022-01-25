@@ -56,12 +56,12 @@ conda info --envs.
 3. Change directory to go in the "api" folder downloaded.
 4. Run: ```python backend.py``` in one terminal or prompt;
 5. Run: ```python frontend.py``` in the other one.
-6. Go to your browser on http://127.0.0.1/8080
+6. Go to your browser on http://127.0.0.1/8080/
 
 ## NOTE
 If there is an error saying <br />
 ```from graphviz.dot import Digraph ImportError: cannot import name 'Digraph' from 'graphviz.dot' ``` 
-<br /> try changing the line 21 of file "gview.dot" through path <br /> 
-``` C:\Users\<username>\<miniconda3|anaconda3>\envs\pm4py_env\Lib\site-packages\pm4py\visualization\common\gview.dot```
+<br /> try changing the line 21 of file "gview.py" through path <br /> 
+``` C:\Users\<username>\<miniconda3|anaconda3>\envs\pm4py_env2\lib\site-packages\pm4py\visualization\common\gview.py```
 <br />with this line  
 <br /> ```from graphviz import Digraph```
