@@ -4,6 +4,7 @@
 	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/myStyle.css') }}">
     <!-- Fontawesome CDN Link -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<title>Index</title>
 </head>
 
@@ -151,7 +152,7 @@ window.onload = function() {
 						<p id='total' style='display:none'>{{ total }}</p>
 						
 						<div class="slidecontainer">
-						  <input type="range" min="1" max="200" value="100" class="sliderZoom" id="myRange">
+						  <input type="range" min="1" max="500" value="100" class="sliderZoom" id="myRange">
 						  <p>Zoom: <span id="demo"></span>%</p>
 						</div>
 						
@@ -383,19 +384,24 @@ window.onload = function() {
 					</div>
 				</div>
 				
-				<div class="bottomright">
-					<form action="" method='POST' enctype = "multipart/form-data">
+				<input type="checkbox" id="importExport" onclick="importExport()">
+				<label for="importExport">
+					<i class="fas fa-exchange-alt" id="iebtn"></i>
+				</label>
+				<div class="bottomright" id="bottomright">
+					<form action="" method='POST' enctype = "multipart/form-data" onsubmit="closeBtn()">
 						<!-- <button type="button" for="myFile">Import log</button> -->
 						<button type="button" onclick="update()">Import log</button>
 						<input type='file' id="file" name="file" style="display:none">
 						<button type="button">Export to DSL</button>
 						<button type="button">Export to DEF-PIPE</button>
 						<div style="text-align:center">
+							<text id="text"></text>
 							<input type="submit" value="Update">
 						<div>
 						<input type="hidden" value="{{updated}}" name="updated" id="updated">
 					</form>
-				</div>
+				</div>	
 		</div>
 		
 	</div>
@@ -405,10 +411,26 @@ window.onload = function() {
 </body>
 
 <script>
-
+window.onchange = function() {
+	if (document.getElementById("file").files[0] != undefined) {
+		document.getElementById('text').innerHTML = "File imported correctly";
+	}
+	else {
+		document.getElementById('text').innerHTML = "";
+	}
+}	
+	
 function update(){
 	document.getElementById('updated').value = true;
 	document.getElementById('file').click();
+	
+}
+
+
+
+function closeBtn() {
+	document.getElementById("bottomright").style.display = "none";
+	document.getElementById("importExport").checked = false;
 }
 
 
@@ -461,9 +483,24 @@ function displayContent(){
 		content.style.maxWidth = "100%";
 		menuBtn.checked = false;
 	}
-
-
 }
+
+var btns = document.getElementById("bottomright");
+var ie = document.getElementById("importExport");
+console.log(btns);
+console.log(ie);
+function importExport(){
+
+	if (ie.checked == false) {
+		btns.style.display = "none";
+		//console.log(document.getElementById("file").files[0]);
+	}
+	else {
+		btns.style.display = "inline-block";
+		
+	}
+}
+
 </script>
 
 
@@ -485,13 +522,13 @@ slider.oninput = function() {
 const svgContainer = document.getElementById("map-content");
 //console.log(svgContainer);
 
-var viewBox = {x:0,y:0,w:"975.94",h:"518.8"};
+var viewBox = {x:0,y:0,w:"1920",h:"1080"};
 var attr = String(viewBox.x)+" "+String(viewBox.y)+" "+String(viewBox.w)+" "+String(viewBox.h);
 zvgZoom.setAttribute('viewBox', attr);
 //console.log(zvgZoom.clientWidth);
 //console.log(String(zvgZoom.style.width));
 //const svgSize = {w:zvgZoom.style.width,h:zvgZoom.style.height};
-const svgSize = {w:"975.94",h:"518.8"};
+const svgSize = {w:"1920",h:"1080"};
 //console.log("Initial svgSize: "+String(svgSize.w)+" "+String(svgSize.h));
 var isPanning = false;
 var startPoint = {x:0,y:0};
