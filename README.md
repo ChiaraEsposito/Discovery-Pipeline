@@ -56,7 +56,7 @@ conda info --envs.
 3. Change directory to go in the "api" folder downloaded.
 4. Run: ```python backend.py``` in one terminal or prompt;
 5. Run: ```python frontend.py``` in the other one.
-6. Go to your browser on http://127.0.0.1/8080/
+6. Go to your browser on http://127.0.0.1:8080/
 
 ## NOTE
 If there is an error saying <br />
