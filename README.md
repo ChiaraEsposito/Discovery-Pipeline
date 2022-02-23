@@ -62,6 +62,6 @@ conda info --envs.
 If there is an error saying <br />
 ```from graphviz.dot import Digraph ImportError: cannot import name 'Digraph' from 'graphviz.dot' ``` 
 <br /> try changing the line 21 of file "gview.py" through path <br /> 
-``` C:\Users\<username>\<miniconda3|anaconda3>\envs\pm4py_env2\lib\site-packages\pm4py\visualization\common\gview.py```
+``` C:\Users\<username>\<miniconda3|anaconda3>\envs\pm4py_env\Lib\site-packages\pm4py\visualization\common\gview.py```
 <br />with this line  
 <br /> ```from graphviz import Digraph```
